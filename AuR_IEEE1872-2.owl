@@ -1,0 +1,130 @@
+@prefix : <http://w3id.org/hsu-aut/IEEE1872.2#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <http://w3id.org/hsu-aut/IEEE1872.2> .
+
+<http://w3id.org/hsu-aut/IEEE1872.2> rdf:type owl:Ontology ;
+                                       owl:versionIRI <http://w3id.org/hsu-aut/IEEE1872.2/1.0.0> ;
+                                       owl:imports <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
+                                       rdfs:comment "An ontology for the IEEE Standard 1872.2 for Autonomous Robotics (AuR). See https://standards.ieee.org/ieee/1872.2/7094/ to purchase access to the standard." ;
+                                       rdfs:isDefinedBy <https://standards.ieee.org/ieee/1872.2/7094/> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://w3id.org/hsu-aut/IEEE1872.2#isPlayedBy
+:isPlayedBy rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#associatedWith> ;
+            rdfs:domain [ rdf:type owl:Class ;
+                          owl:unionOf ( :Function
+                                        :FunctionExecution
+                                      )
+                        ] ;
+            rdfs:range :ManifestedBehavior ;
+            rdfs:label "is played by" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://w3id.org/hsu-aut/IEEE1872.2#ArchitecturalBehavior
+:ArchitecturalBehavior rdf:type owl:Class ;
+                       rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality> ;
+                       rdfs:comment "Architectural behavior makes sense from internal viewpoint of the robot, that is how robots are built. These ontological notions represent knowledge about the architecture of the robot. They are justified by the architecture of a robot and, ideally, they contribute to explain the manifested/emergent behaviors. Note that if a robot is built with a reactive behavior but it breaks before using it, then there will never be any manifested behavior." ;
+                       rdfs:label "Architectural behavior" .
+
+
+###  http://w3id.org/hsu-aut/IEEE1872.2#EmergentBehavior
+:EmergentBehavior rdf:type owl:Class ;
+                  rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> ;
+                  rdfs:comment "The emergent behavior is the result of a choice of what to focus upon in the interaction at stake. The emergent behavior differs from a manifested behavior because the latter considers all the relationships manifested by the object. The emergent behavior differs from the engineering behavior because the latter fixes the set of state variables once for all, i.e., independently from the focused event." ;
+                  rdfs:label "Emergent behavior" .
+
+
+###  http://w3id.org/hsu-aut/IEEE1872.2#EngineeringBehavior
+:EngineeringBehavior rdf:type owl:Class ;
+                     rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> ;
+                     rdfs:comment "The engineering behavior provides an operational view of the manifested behavior as it requires to fix a set of state variables, and to focus on how they describe changes in the object’s qualities and relationships." ;
+                     rdfs:label "Engineering behavior" .
+
+
+###  http://w3id.org/hsu-aut/IEEE1872.2#Function
+:Function rdf:type owl:Class ;
+          rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role> ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :isPlayedBy ;
+                            owl:allValuesFrom :ManifestedBehavior
+                          ] ;
+          rdfs:comment "An object has a function in an event if its behavior causally contributes to the achievement of the function goal. A function needs a goal/task to be identified. Examples of functions are as follows: acquisition of information (via sensing behavior); physical modification of objects (via force exertion behavior through actuators); object classification (via reasoning behavior), etc." .
+
+
+###  http://w3id.org/hsu-aut/IEEE1872.2#FunctionExecution
+:FunctionExecution rdf:type owl:Class ;
+                   rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event> ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty :isPlayedBy ;
+                                     owl:allValuesFrom :ManifestedBehavior
+                                   ] ;
+                   rdfs:comment "An object executes a function in an event. In robotics, this function execution is often considered an action that the robot performs. A manifested behavior might involve several function executions." ;
+                   rdfs:label "Function execution" .
+
+
+###  http://w3id.org/hsu-aut/IEEE1872.2#InformationInteraction
+:InformationInteraction rdf:type owl:Class ;
+                        rdfs:subClassOf :Interaction ;
+                        rdfs:label "Information interaction" .
+
+
+###  http://w3id.org/hsu-aut/IEEE1872.2#Interaction
+:Interaction rdf:type owl:Class ;
+             rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality> ;
+             rdfs:comment "Interaction refers to the way the relationships among objects change over time. This means that the interaction among two or more objects is a quality of the event in which they participate. The very happening of an event implies the existence of an interaction among the participants. The relationships among the objects can be of different types: relative movement, exertion of physical force, exchange of information etc. but not negative. For instance, “the robot is not seeing (or cannot see) the mug” is not expressing a relationship relevant for an interaction. An interaction does not require goals, purposes, or intentions." .
+
+
+###  http://w3id.org/hsu-aut/IEEE1872.2#ManifestedBehavior
+:ManifestedBehavior rdf:type owl:Class ;
+                    rdfs:subClassOf :Interaction ;
+                    rdfs:comment "The manifested behavior depends on the object’s environment and is a restriction of the interaction in which the object participates. A manifested behavior is object-centered and does not depend on an observer." ;
+                    rdfs:label "Manifested behavior" .
+
+
+###  http://w3id.org/hsu-aut/IEEE1872.2#Object-centeredEnvironment
+:Object-centeredEnvironment rdf:type owl:Class ;
+                            rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject> ;
+                            rdfs:comment "The environment in the sense of the AuR ontology standard is centered in a given object. Despite the world is the same, each object has its own environment model where it can execute actions. Several object-oriented environment models can be linked/registered to facilitate interactions between objects, e.g., robots." ;
+                            rdfs:label "Object-centered environment" .
+
+
+###  http://w3id.org/hsu-aut/IEEE1872.2#Object-centeredEnvironmentDescription
+:Object-centeredEnvironmentDescription rdf:type owl:Class ;
+                                       rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> ;
+                                       rdfs:comment "The environment description of an industrial robotic arm is what is known about the environment. Two robots may have the same (or almost the same) environment but use different environment descriptions, as the description of the environment may depend on the robots’ capabilities (e.g., perception, reasoning, acting) and the robot’s knowledge base." ;
+                                       rdfs:label "Object-centered environment description" .
+
+
+###  http://w3id.org/hsu-aut/IEEE1872.2#Object-centeredExternalEnvironmentDescription
+:Object-centeredExternalEnvironmentDescription rdf:type owl:Class ;
+                                               rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> ;
+                                               rdfs:comment "The environment description of an industrial robotic arm is what is known about the environment. Two robots may have the same (or almost the same) environment but use different environment descriptions, as the description of the environment may depend on the robots’ capabilities (e.g., perception, reasoning, acting) and the robot’s knowledge base." ;
+                                               rdfs:label "Object-centered external environment description" .
+
+
+###  http://w3id.org/hsu-aut/IEEE1872.2#PhysicalInteraction
+:PhysicalInteraction rdf:type owl:Class ;
+                     rdfs:subClassOf :Interaction ;
+                     rdfs:label "Physical interaction" .
+
+
+###  http://w3id.org/hsu-aut/IEEE1872.2#RuleBehavior
+:RuleBehavior rdf:type owl:Class ;
+              rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject> ;
+              rdfs:comment "A rule behavior describes the set of rules e.g., the decision taking to switch between different architectural behaviors, from reactive to deliberative to cognitive." ;
+              rdfs:label "Rule behavior" .
+
+
+###  Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi
