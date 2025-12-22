@@ -33,6 +33,10 @@
 #    Classes
 #################################################################
 
+###  http://purl.org/ieee1872-owl/sumo-cora#Attribute
+<http://purl.org/ieee1872-owl/sumo-cora#Attribute> owl:equivalentClass <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality> .
+
+
 ###  http://w3id.org/hsu-aut/IEEE1872.2#ArchitecturalBehavior
 :ArchitecturalBehavior rdf:type owl:Class ;
                        rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality> ;
