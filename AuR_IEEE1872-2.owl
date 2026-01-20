@@ -37,6 +37,10 @@
 <http://purl.org/ieee1872-owl/sumo-cora#Attribute> owl:equivalentClass <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality> .
 
 
+###  http://purl.org/ieee1872-owl/sumo-cora#CorpuscularObject
+<http://purl.org/ieee1872-owl/sumo-cora#CorpuscularObject> owl:equivalentClass <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject> .
+
+
 ###  http://purl.org/ieee1872-owl/sumo-cora#Process
 <http://purl.org/ieee1872-owl/sumo-cora#Process> owl:equivalentClass <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event> ;
                                                  rdfs:subClassOf [ rdf:type owl:Restriction ;
