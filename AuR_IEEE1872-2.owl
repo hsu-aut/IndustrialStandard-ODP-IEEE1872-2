@@ -89,7 +89,11 @@
 ###  http://w3id.org/hsu-aut/IEEE1872.2#Interaction
 :Interaction rdf:type owl:Class ;
              rdfs:subClassOf <http://purl.org/ieee1872-owl/sumo-cora#Attribute> ,
-                             <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality> ;
+                             <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality> ,
+                             [ rdf:type owl:Restriction ;
+                               owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isQualityOf> ;
+                               owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event>
+                             ] ;
              rdfs:comment "Interaction refers to the way the relationships among objects change over time. This means that the interaction among two or more objects is a quality of the event in which they participate. The very happening of an event implies the existence of an interaction among the participants. The relationships among the objects can be of different types: relative movement, exertion of physical force, exchange of information etc. but not negative. For instance, “the robot is not seeing (or cannot see) the mug” is not expressing a relationship relevant for an interaction. An interaction does not require goals, purposes, or intentions." .
 
 
