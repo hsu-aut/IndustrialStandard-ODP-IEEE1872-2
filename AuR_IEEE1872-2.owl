@@ -37,6 +37,14 @@
 <http://purl.org/ieee1872-owl/sumo-cora#Attribute> owl:equivalentClass <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality> .
 
 
+###  http://purl.org/ieee1872-owl/sumo-cora#Process
+<http://purl.org/ieee1872-owl/sumo-cora#Process> owl:equivalentClass <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event> ;
+                                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                                   owl:onProperty <http://purl.org/ieee1872-owl/sumo-cora#agent> ;
+                                                                   owl:allValuesFrom <http://purl.org/ieee1872-owl/sumo-cora#Agent>
+                                                                 ] .
+
+
 ###  http://w3id.org/hsu-aut/IEEE1872.2#ArchitecturalBehavior
 :ArchitecturalBehavior rdf:type owl:Class ;
                        rdfs:subClassOf <http://purl.org/ieee1872-owl/sumo-cora#Attribute> ,
