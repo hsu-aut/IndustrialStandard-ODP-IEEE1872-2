@@ -49,6 +49,10 @@
                                                                  ] .
 
 
+###  http://purl.org/ieee1872-owl/sumo-cora#Proposition
+<http://purl.org/ieee1872-owl/sumo-cora#Proposition> owl:equivalentClass <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> .
+
+
 ###  http://w3id.org/hsu-aut/IEEE1872.2#ArchitecturalBehavior
 :ArchitecturalBehavior rdf:type owl:Class ;
                        rdfs:subClassOf <http://purl.org/ieee1872-owl/sumo-cora#Attribute> ,
