@@ -7,11 +7,12 @@
 @base <http://w3id.org/hsu-aut/IEEE1872.2#> .
 
 <http://w3id.org/hsu-aut/IEEE1872.2> rdf:type owl:Ontology ;
-                                      owl:versionIRI <http://w3id.org/hsu-aut/IEEE1872.2/1.0.0> ;
+                                      owl:versionIRI <http://w3id.org/hsu-aut/IEEE1872.2/1.1.0> ;
                                       owl:imports <http://purl.org/ieee1872-owl/sumo-cora> ,
                                                   <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
                                       rdfs:comment "An ontology for the IEEE Standard 1872.2 for Autonomous Robotics (AuR). See https://standards.ieee.org/ieee/1872.2/7094/ to purchase access to the standard." ;
-                                      rdfs:isDefinedBy <https://standards.ieee.org/ieee/1872.2/7094/> .
+                                      rdfs:isDefinedBy <https://standards.ieee.org/ieee/1872.2/7094/> ;
+                                      owl:versionInfo "1.1.0" .
 
 #################################################################
 #    Object Properties
