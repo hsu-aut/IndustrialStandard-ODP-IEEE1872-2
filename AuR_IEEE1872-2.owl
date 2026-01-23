@@ -89,7 +89,7 @@
 :FunctionExecution rdf:type owl:Class ;
                    rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event> ,
                                    [ rdf:type owl:Restriction ;
-                                     owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParticipantIn> ;
+                                     owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasParticipant> ;
                                      owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Goal>
                                    ] ,
                                    [ rdf:type owl:Restriction ;
