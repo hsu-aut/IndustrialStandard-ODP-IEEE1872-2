@@ -7,12 +7,12 @@
 @base <http://w3id.org/hsu-aut/IEEE1872-2#> .
 
 <http://w3id.org/hsu-aut/IEEE1872-2> rdf:type owl:Ontology ;
-                                      owl:versionIRI <http://w3id.org/hsu-aut/IEEE1872-2/1.2.0> ;
+                                      owl:versionIRI <http://w3id.org/hsu-aut/IEEE1872-2/1.3.0> ;
                                       owl:imports <http://purl.org/ieee1872-owl/sumo-cora> ,
                                                   <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
                                       rdfs:comment "An ontology for the IEEE Standard 1872.2 for Autonomous Robotics (AuR). See https://standards.ieee.org/ieee/1872.2/7094/ to purchase access to the standard." ;
                                       rdfs:isDefinedBy <https://standards.ieee.org/ieee/1872.2/7094/> ;
-                                      owl:versionInfo "1.2.0" .
+                                      owl:versionInfo "1.3.0" .
 
 #################################################################
 #    Object Properties
@@ -82,8 +82,13 @@
                           [ rdf:type owl:Restriction ;
                             owl:onProperty :isPlayedBy ;
                             owl:allValuesFrom :ManifestedBehavior
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParticipantIn> ;
+                            owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event>
                           ] ;
-          rdfs:comment "An object has a function in an event if its behavior causally contributes to the achievement of the function goal. A function needs a goal/task to be identified. Examples of functions are as follows: acquisition of information (via sensing behavior); physical modification of objects (via force exertion behavior through actuators); object classification (via reasoning behavior), etc." .
+          rdfs:comment "An object has a function in an event if its behavior causally contributes to the achievement of the function goal. A function needs a goal/task to be identified. Examples of functions are as follows: acquisition of information (via sensing behavior); physical modification of objects (via force exertion behavior through actuators); object classification (via reasoning behavior), etc." ;
+          rdfs:label "Function" .
 
 
 ###  http://w3id.org/hsu-aut/IEEE1872-2#FunctionExecution
@@ -96,8 +101,17 @@
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty :isPlayedBy ;
                                      owl:allValuesFrom :ManifestedBehavior
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart> ;
+                                     owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event>
+                                   ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasParticipant> ;
+                                     owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalAgent>
                                    ] ;
                    rdfs:comment "An object executes a function in an event. In robotics, this function execution is often considered an action that the robot performs. A manifested behavior might involve several function executions." ;
+                   rdfs:comment "Deviations from IEEE Std 1872.2-2021, 4.4.10, made to keep the ontology satisfiable. (1) The standard states 'Function execution is participant in some Goal'. This cannot be expressed in DUL: isParticipantIn has domain Object and range Event, while FunctionExecution is an Event and DUL declares Event disjoint with Object; Goal is a Description and therefore not an Event. A literal encoding would make this class unsatisfiable in both argument positions. The inverse direction, hasParticipant some Goal, is used instead and is type-correct. (2) The standard states 'Function execution has participant Artificial agent'. DUL defines no class ArtificialAgent; DUL:PhysicalAgent is used as the nearest available and deliberately weaker superclass." ;
                    rdfs:label "Function execution" .
 
 
@@ -115,6 +129,7 @@
                                owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isQualityOf> ;
                                owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event>
                              ] ;
+             rdfs:label "Interaction" ;
              rdfs:comment "Interaction refers to the way the relationships among objects change over time. This means that the interaction among two or more objects is a quality of the event in which they participate. The very happening of an event implies the existence of an interaction among the participants. The relationships among the objects can be of different types: relative movement, exertion of physical force, exchange of information etc. but not negative. For instance, “the robot is not seeing (or cannot see) the mug” is not expressing a relationship relevant for an interaction. An interaction does not require goals, purposes, or intentions." .
 
 
@@ -127,21 +142,46 @@
 
 ###  http://w3id.org/hsu-aut/IEEE1872-2#Object-centeredEnvironment
 :Object-centeredEnvironment rdf:type owl:Class ;
-                            rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject> ;
+                            rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject> ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParticipantIn> ;
+                                              owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#hasPart> ;
+                                              owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject>
+                                            ] ;
                             rdfs:comment "The environment in the sense of the AuR ontology standard is centered in a given object. Despite the world is the same, each object has its own environment model where it can execute actions. Several object-oriented environment models can be linked/registered to facilitate interactions between objects, e.g., robots." ;
+                            rdfs:comment "Deviation from IEEE Std 1872.2-2021, 4.4.2. The standard states 'Object-centered environment has participant some Physical object'. This cannot be expressed in DUL: hasParticipant has domain Event, while this class is a PhysicalObject and DUL declares Event disjoint with Object, which would make the class unsatisfiable. DUL:hasPart is used instead, matching the definition in 4.4.2, which describes the object-centered environment as 'a physical object comprising all the entities (with their relationships) that participate in the event'." ;
                             rdfs:label "Object-centered environment" .
 
 
 ###  http://w3id.org/hsu-aut/IEEE1872-2#Object-centeredEnvironmentDescription
 :Object-centeredEnvironmentDescription rdf:type owl:Class ;
-                                       rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> ;
+                                       rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isClassifiedBy> ;
+                                                         owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role>
+                                                       ] ,
+                                                       [ rdf:type owl:Restriction ;
+                                                         owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParticipantIn> ;
+                                                         owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event>
+                                                       ] ;
                                        rdfs:comment "The environment description of an industrial robotic arm is what is known about the environment. Two robots may have the same (or almost the same) environment but use different environment descriptions, as the description of the environment may depend on the robots’ capabilities (e.g., perception, reasoning, acting) and the robot’s knowledge base." ;
                                        rdfs:label "Object-centered environment description" .
 
 
 ###  http://w3id.org/hsu-aut/IEEE1872-2#Object-centeredExternalEnvironmentDescription
 :Object-centeredExternalEnvironmentDescription rdf:type owl:Class ;
-                                               rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> ;
+                                               rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isClassifiedBy> ;
+                                                                 owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role>
+                                                               ] ,
+                                                               [ rdf:type owl:Restriction ;
+                                                                 owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParticipantIn> ;
+                                                                 owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event>
+                                                               ] ;
                                                rdfs:comment "The environment description of an industrial robotic arm is what is known about the environment. Two robots may have the same (or almost the same) environment but use different environment descriptions, as the description of the environment may depend on the robots’ capabilities (e.g., perception, reasoning, acting) and the robot’s knowledge base." ;
                                                rdfs:label "Object-centered external environment description" .
 
@@ -157,6 +197,35 @@
               rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject> ;
               rdfs:comment "A rule behavior describes the set of rules e.g., the decision taking to switch between different architectural behaviors, from reactive to deliberative to cognitive." ;
               rdfs:label "Rule behavior" .
+
+
+###  http://w3id.org/hsu-aut/IEEE1872-2#Behavior
+:Behavior rdf:type owl:Class ;
+          owl:equivalentClass [ rdf:type owl:Class ;
+                                owl:unionOf ( :ManifestedBehavior
+                                              :EngineeringBehavior
+                                              :EmergentBehavior
+                                              :ArchitecturalBehavior
+                                              :RuleBehavior
+                                            )
+                              ] ;
+          rdfs:comment "The behavior of an object is an element of one of the following classes: manifested behavior, engineering behavior, emergent behavior, architectural behavior, or rule behavior. Defined in IEEE Std 1872.2-2021, 3.2." ;
+          rdfs:comment "This class deliberately has no common superclass. The five kinds of behavior are placed under different DUL top-level classes by the standard (Quality, InformationObject, PhysicalObject), some of which are mutually disjoint, so no single superclass can cover them all." ;
+          rdfs:label "Behavior" .
+
+
+#################################################################
+#    Disjointness
+#################################################################
+
+# IEEE Std 1872.2-2021, 3.2 defines physical interaction as an interaction
+# "in which there are direct exchanges of physical forces" and information
+# interaction as one "in which there are NO direct exchanges of physical
+# forces". The two are complementary by definition, so they are declared
+# disjoint; without this a reasoner cannot detect a contradictory model.
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :PhysicalInteraction :InformationInteraction )
+] .
 
 
 ###  Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi
