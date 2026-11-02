@@ -7,12 +7,12 @@
 @base <http://w3id.org/hsu-aut/IEEE1872-2#> .
 
 <http://w3id.org/hsu-aut/IEEE1872-2> rdf:type owl:Ontology ;
-                                      owl:versionIRI <http://w3id.org/hsu-aut/IEEE1872-2/2.0.0> ;
+                                      owl:versionIRI <http://w3id.org/hsu-aut/IEEE1872-2/3.0.0> ;
                                       owl:imports <http://purl.org/ieee1872-owl/sumo-cora> ,
                                                   <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl> ;
                                       rdfs:comment "An ontology for the IEEE Standard 1872.2 for Autonomous Robotics (AuR). See https://standards.ieee.org/ieee/1872.2/7094/ to purchase access to the standard." ;
                                       rdfs:isDefinedBy <https://standards.ieee.org/ieee/1872.2/7094/> ;
-                                      owl:versionInfo "2.0.0" .
+                                      owl:versionInfo "3.0.0" .
 
 #################################################################
 #    Object Properties
@@ -27,6 +27,7 @@
                                       )
                         ] ;
             rdfs:range :ManifestedBehavior ;
+            rdfs:comment "Relates a Function or a Function execution to the Manifested behavior that plays it. IEEE Std 1872.2-2021, 4.4.9 and 4.4.10 state 'is played by only Manifested behavior' and list it among the upper-level axioms from DUL, but DUL declares no such relation, and DUL:classifies cannot carry it because DUL restricts its range to Object while Manifested behavior is a Quality. It is therefore introduced here, as a subproperty of DUL:associatedWith." ;
             rdfs:label "is played by" .
 
 
@@ -58,21 +59,29 @@
 :ArchitecturalBehavior rdf:type owl:Class ;
                        rdfs:subClassOf <http://purl.org/ieee1872-owl/sumo-cora#Attribute> ,
                                        <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Quality> ;
-                       rdfs:comment "Architectural behavior makes sense from internal viewpoint of the robot, that is how robots are built. These ontological notions represent knowledge about the architecture of the robot. They are justified by the architecture of a robot and, ideally, they contribute to explain the manifested/emergent behaviors. Note that if a robot is built with a reactive behavior but it breaks before using it, then there will never be any manifested behavior." ;
+                       rdfs:comment "Architectural behavior makes sense from internal viewpoint of the robot, that is how robots are built. These ontological notions represent knowledge about the architecture of the robot. They are justified by the architecture of a robot and, ideally, they contribute to explain the manifested/emergent behaviors. Note that if a robot is built with a reactive behavior but it breaks before using it, then there will never be any manifested behavior. Specified in IEEE Std 1872.2-2021, 4.4.8." ;
                        rdfs:label "Architectural behavior" .
 
 
 ###  http://w3id.org/hsu-aut/IEEE1872-2#EmergentBehavior
 :EmergentBehavior rdf:type owl:Class ;
-                  rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> ;
-                  rdfs:comment "The emergent behavior is the result of a choice of what to focus upon in the interaction at stake. The emergent behavior differs from a manifested behavior because the latter considers all the relationships manifested by the object. The emergent behavior differs from the engineering behavior because the latter fixes the set of state variables once for all, i.e., independently from the focused event." ;
+                  rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> ,
+                                  [ rdf:type owl:Restriction ;
+                                    owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isClassifiedBy> ;
+                                    owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role>
+                                  ] ;
+                  rdfs:comment "The emergent behavior is the result of a choice of what to focus upon in the interaction at stake. The emergent behavior differs from a manifested behavior because the latter considers all the relationships manifested by the object. The emergent behavior differs from the engineering behavior because the latter fixes the set of state variables once for all, i.e., independently from the focused event. Specified in IEEE Std 1872.2-2021, 4.4.6." ;
                   rdfs:label "Emergent behavior" .
 
 
 ###  http://w3id.org/hsu-aut/IEEE1872-2#EngineeringBehavior
 :EngineeringBehavior rdf:type owl:Class ;
-                     rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> ;
-                     rdfs:comment "The engineering behavior provides an operational view of the manifested behavior as it requires to fix a set of state variables, and to focus on how they describe changes in the object’s qualities and relationships." ;
+                     rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#InformationObject> ,
+                                     [ rdf:type owl:Restriction ;
+                                       owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isClassifiedBy> ;
+                                       owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Role>
+                                     ] ;
+                     rdfs:comment "The engineering behavior provides an operational view of the manifested behavior as it requires to fix a set of state variables, and to focus on how they describe changes in the object’s qualities and relationships. Specified in IEEE Std 1872.2-2021, 4.4.5." ;
                      rdfs:label "Engineering behavior" .
 
 
@@ -87,7 +96,7 @@
                             owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParticipantIn> ;
                             owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event>
                           ] ;
-          rdfs:comment "An object has a function in an event if its behavior causally contributes to the achievement of the function goal. A function needs a goal/task to be identified. Examples of functions are as follows: acquisition of information (via sensing behavior); physical modification of objects (via force exertion behavior through actuators); object classification (via reasoning behavior), etc." ;
+          rdfs:comment "An object has a function in an event if its behavior causally contributes to the achievement of the function goal. A function needs a goal/task to be identified. Examples of functions are as follows: acquisition of information (via sensing behavior); physical modification of objects (via force exertion behavior through actuators); object classification (via reasoning behavior), etc. Specified in IEEE Std 1872.2-2021, 4.4.9." ;
           rdfs:label "Function" .
 
 
@@ -118,6 +127,7 @@
 ###  http://w3id.org/hsu-aut/IEEE1872-2#InformationInteraction
 :InformationInteraction rdf:type owl:Class ;
                         rdfs:subClassOf :Interaction ;
+                        rdfs:comment "An interaction in which there are no direct exchanges of physical forces. Defined in IEEE Std 1872.2-2021, 3.2. The standard states no axioms of its own for this class in 4.4.1; it deduces them from Interaction, which the subclass axiom already yields." ;
                         rdfs:label "Information interaction" .
 
 
@@ -130,13 +140,13 @@
                                owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event>
                              ] ;
              rdfs:label "Interaction" ;
-             rdfs:comment "Interaction refers to the way the relationships among objects change over time. This means that the interaction among two or more objects is a quality of the event in which they participate. The very happening of an event implies the existence of an interaction among the participants. The relationships among the objects can be of different types: relative movement, exertion of physical force, exchange of information etc. but not negative. For instance, “the robot is not seeing (or cannot see) the mug” is not expressing a relationship relevant for an interaction. An interaction does not require goals, purposes, or intentions." .
+             rdfs:comment "Interaction refers to the way the relationships among objects change over time. This means that the interaction among two or more objects is a quality of the event in which they participate. The very happening of an event implies the existence of an interaction among the participants. The relationships among the objects can be of different types: relative movement, exertion of physical force, exchange of information etc. but not negative. For instance, “the robot is not seeing (or cannot see) the mug” is not expressing a relationship relevant for an interaction. An interaction does not require goals, purposes, or intentions. Specified in IEEE Std 1872.2-2021, 4.4.1." .
 
 
 ###  http://w3id.org/hsu-aut/IEEE1872-2#ManifestedBehavior
 :ManifestedBehavior rdf:type owl:Class ;
                     rdfs:subClassOf :Interaction ;
-                    rdfs:comment "The manifested behavior depends on the object’s environment and is a restriction of the interaction in which the object participates. A manifested behavior is object-centered and does not depend on an observer." ;
+                    rdfs:comment "The manifested behavior depends on the object’s environment and is a restriction of the interaction in which the object participates. A manifested behavior is object-centered and does not depend on an observer. Specified in IEEE Std 1872.2-2021, 4.4.4." ;
                     rdfs:label "Manifested behavior" .
 
 
@@ -152,7 +162,7 @@
                                               owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject>
                                             ] ;
                             rdfs:comment "The environment in the sense of the AuR ontology standard is centered in a given object. Despite the world is the same, each object has its own environment model where it can execute actions. Several object-oriented environment models can be linked/registered to facilitate interactions between objects, e.g., robots." ;
-                            rdfs:comment "Deviation from IEEE Std 1872.2-2021, 4.4.2. The standard states 'Object-centered environment has participant some Physical object'. This cannot be expressed in DUL: hasParticipant has domain Event, while this class is a PhysicalObject and DUL declares Event disjoint with Object, which would make the class unsatisfiable. DUL:hasPart is used instead, matching the definition in 4.4.2, which describes the object-centered environment as 'a physical object comprising all the entities (with their relationships) that participate in the event'." ;
+                            rdfs:comment "Deviation from IEEE Std 1872.2-2021, 4.4.2. The standard states 'Object-centered environment has participant some Physical object'. This cannot be expressed in DUL: hasParticipant has domain Event, while this class is a PhysicalObject and DUL declares Event disjoint with Object, which would make the class unsatisfiable. DUL:hasPart is used instead, following the definition in 3.2, which describes the object-centered environment as 'a physical object comprising all the entities (with their relationships) that participate in the event'. This restriction has no formal effect, as DUL:hasPart is reflexive by design; the composition stated in 3.2 collects all participating entities and is not expressible as an existential restriction." ;
                             rdfs:label "Object-centered environment" .
 
 
@@ -167,7 +177,7 @@
                                                          owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParticipantIn> ;
                                                          owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event>
                                                        ] ;
-                                       rdfs:comment "The environment description of an industrial robotic arm is what is known about the environment. Two robots may have the same (or almost the same) environment but use different environment descriptions, as the description of the environment may depend on the robots’ capabilities (e.g., perception, reasoning, acting) and the robot’s knowledge base." ;
+                                       rdfs:comment "The environment description of an industrial robotic arm is what is known about the environment. Two robots may have the same (or almost the same) environment but use different environment descriptions, as the description of the environment may depend on the robots’ capabilities (e.g., perception, reasoning, acting) and the robot’s knowledge base. Specified in IEEE Std 1872.2-2021, 4.4.3." ;
                                        rdfs:label "Object-centered environment description" .
 
 
@@ -182,20 +192,21 @@
                                                                  owl:onProperty <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#isParticipantIn> ;
                                                                  owl:someValuesFrom <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#Event>
                                                                ] ;
-                                               rdfs:comment "The environment description of an industrial robotic arm is what is known about the environment. Two robots may have the same (or almost the same) environment but use different environment descriptions, as the description of the environment may depend on the robots’ capabilities (e.g., perception, reasoning, acting) and the robot’s knowledge base." ;
+                                               rdfs:comment "The environment description of an industrial robotic arm is what is known about the environment. Two robots may have the same (or almost the same) environment but use different environment descriptions, as the description of the environment may depend on the robots’ capabilities (e.g., perception, reasoning, acting) and the robot’s knowledge base. Specified in IEEE Std 1872.2-2021, 4.4.3." ;
                                                rdfs:label "Object-centered external environment description" .
 
 
 ###  http://w3id.org/hsu-aut/IEEE1872-2#PhysicalInteraction
 :PhysicalInteraction rdf:type owl:Class ;
                      rdfs:subClassOf :Interaction ;
+                     rdfs:comment "An interaction in which there are direct exchanges of physical forces. Defined in IEEE Std 1872.2-2021, 3.2. The standard states no axioms of its own for this class in 4.4.1; it deduces them from Interaction, which the subclass axiom already yields." ;
                      rdfs:label "Physical interaction" .
 
 
 ###  http://w3id.org/hsu-aut/IEEE1872-2#RuleBehavior
 :RuleBehavior rdf:type owl:Class ;
               rdfs:subClassOf <http://www.ontologydesignpatterns.org/ont/dul/DUL.owl#PhysicalObject> ;
-              rdfs:comment "A rule behavior describes the set of rules e.g., the decision taking to switch between different architectural behaviors, from reactive to deliberative to cognitive." ;
+              rdfs:comment "A rule behavior describes the set of rules e.g., the decision taking to switch between different architectural behaviors, from reactive to deliberative to cognitive. Specified in IEEE Std 1872.2-2021, 4.4.7." ;
               rdfs:label "Rule behavior" .
 
 
@@ -225,6 +236,22 @@
 # disjoint; without this a reasoner cannot detect a contradictory model.
 [ rdf:type owl:AllDisjointClasses ;
   owl:members ( :PhysicalInteraction :InformationInteraction )
+] .
+
+# IEEE Std 1872.2-2021, 4.4.8 d) distinguishes architectural from manifested
+# behavior: an architectural behavior is justified by how the robot is built and
+# may never be manifested, as in the standard's example of a robot that breaks
+# before using a reactive behavior. The standard states no axiom for it.
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :ManifestedBehavior :ArchitecturalBehavior )
+] .
+
+# IEEE Std 1872.2-2021, 4.4.6 d) distinguishes emergent from engineering
+# behavior: the engineering behavior fixes its set of state variables once and
+# for all, independently of the focused event. The standard states no axiom for
+# it.
+[ rdf:type owl:AllDisjointClasses ;
+  owl:members ( :EngineeringBehavior :EmergentBehavior )
 ] .
 
 
