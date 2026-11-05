@@ -32,13 +32,15 @@ Figure 1: Autonomous Robots according to IEEE 1872.2
 
 ## Usage
 
-If you want to use this ontology design pattern, the easiest way is to directly import it into your ontology via `owl:imports` statements. Make sure to reference a fixed release version so that you can't get surprised by future changes. For this example it would be http://www.w3id.org/hsu-aut/ieee1872.2/1.0.0. You can use this URL in an `owl:imports` statement of your ontology. If you're having trouble using this URL in a tool like Protégé, try opening your ontology with a text editor and simply inserting your imports manually.
+If you want to use this ontology design pattern, the easiest way is to directly import it into your ontology via `owl:imports` statements. Make sure to reference a fixed release version so that you can't get surprised by future changes. For this example it would be http://w3id.org/hsu-aut/IEEE1872-2/3.0.0. You can use this URL in an `owl:imports` statement of your ontology. If you're having trouble using this URL in a tool like Protégé, try opening your ontology with a text editor and simply inserting your imports manually.
 An example of an imports section looks like this:
 
 ```xml
-<owl:Ontology rdf:about="http://www.hsu-ifa.de/ontologies/capability-model#">
-    <owl:versionIRI rdf:resource="http://www.hsu-ifa.de/ontologies/capability-model/1.0.0#"/>
-    <owl:imports rdf:resource="http://www.w3id.org/hsu-aut/ieee1872.2/1.0.0"/>
+<owl:Ontology rdf:about="http://example.org/my-ontology#">
+    <owl:versionIRI rdf:resource="http://example.org/my-ontology/1.0.0#"/>
+    <owl:imports rdf:resource="http://w3id.org/hsu-aut/IEEE1872-2/3.0.0"/>
 </owl:Ontology>
 ```
+Note that the w3id redirect only serves the ontology file if the request carries an RDF `Accept` header (`text/turtle`, `application/rdf+xml` or `application/x-turtle`); a plain browser request is redirected to this repository page instead. Tools like Protégé send such a header, so `owl:imports` works.
+
 Of course you can also clone or download this repository and import an ODP from a local copy. The advantage of the first approach is that tools like Protégé or TopBraid Composer will directly use the ontologies from the internet and you can simply increase the version number in case you want to use a newer version of our ODPs.
