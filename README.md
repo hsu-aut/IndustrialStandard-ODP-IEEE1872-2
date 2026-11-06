@@ -5,7 +5,7 @@
 The development of software functionalities, or applications in general, that monitor and analyze robot-related data in order to improve, support or automate processes, is becoming increasingly important in industry. These applications require several information from different data sources in their context. An application that is planning a maintenance workers daily schedule for instance, requires several information about robot statuses, mission plans and other object states, which resides in different systems likes Companion Computers or Structured Query Language (SQL) databases. Furthermore, companies usually run robots and software systems from different vendors or of different ages. The schemata used in such systems do therefore not follow a certain standard, i.e. they are very heterogeneous in their semantics. When building such applications, accessing, searching and understanding the data sources is becoming a very time intensive, manual and error prone procedure that is repeated for every newly build application and for every newly introduced data source. To allow for an eased access, searching and understanding of these heterogeneous data sources, an ontology can be used to integrate all heterogeneous data sources in one schemata. 
 
 
-This repository contains an ontology of IEEE Standard 1872.2 which is a standard to describe domain-speficic concepts and definitions used in Autonomous Robotics. We maintain a whole list of standard-based ontologies, check out these links:
+This repository contains an ontology of IEEE Standard 1872.2 which is a standard to describe domain-specific concepts and definitions used in Autonomous Robotics. We maintain a whole list of standard-based ontologies, check out these links:
  - [DIN EN 61360](https://github.com/hsu-aut/IndustrialStandard-ODP-DINEN61360)
  - [VDI 2206](https://github.com/hsu-aut/IndustrialStandard-ODP-VDI2206)
  - [VDI 2860](https://github.com/hsu-aut/IndustrialStandard-ODP-VDI2860)
@@ -21,11 +21,21 @@ This repository contains an ontology of IEEE Standard 1872.2 which is a standard
 ## IEEE 1872.2 - Autonomous Robotics (AuR) Ontology
 
 The ontology of the IEEE 1872.2 standard describes domain-specific concepts of autonomous robots [1]. This is intended to provide a foundation for further descriptions of autonomous robots and can be extended to include more specific concepts for a particular application, for example. This domain ontology enables comparability of autonomous robots.  
-The ontology extends the IEEE 1872 standard that defines important terms in robotics and automation [2]. Additionally, the two upper ontologies DUL and SUMO are used. Figure 1 shows the information model of the ODP in the form of a UML class diagram. Only the upper ontology DUL is shown in the figure. Both upper ontologies are integrated in the ontology itself: DUL is imported directly, and the SUMO concepts used by the standard are taken from the `sumo-cora` module of the IEEE 1872 OWL implementation, which is imported as well. Where the standard gives both a DUL and a SUMO hierarchy for a concept, the ontology carries both, for example `Interaction` is a subclass of `DUL:Quality` and of `sumo-cora:Attribute`. <br>
-The classes with blue background are classes from the upper ontology DUL. The other classes are from the standard presented here. This ontology can be used to describe functions and function executions. A function is provided by a robot, which is actually executable via function execution. Likewise, interactions between autonomous robots or even other objects can now be described. In the same way, the environment can be specified. A detailed description can be found in the standard [1]. 
+The ontology extends the IEEE 1872 standard that defines important terms in robotics and automation [2]. Additionally, the two upper ontologies DUL and SUMO are used. Figure 1 shows the information model of the ODP in the form of a UML class diagram. Both upper ontologies are integrated in the ontology itself: DUL is imported directly, and the SUMO concepts used by the standard are taken from the `sumo-cora` module of the IEEE 1872 OWL implementation, which is imported as well. Where the standard gives both a DUL and a SUMO hierarchy for a concept, the ontology carries both, for example `Interaction` is a subclass of `DUL:Quality` and of `sumo-cora:Attribute`. <br>
+In the figure, blue classes are defined by this ontology and grey classes come from DUL, each with its equivalent SUMO class (≡). Class axioms are listed inside the boxes in description logic notation; hollow triangles denote subclass relations. A detailed description can be found in the standard [1].
+
+**Functions.** A `Function` is a role that participates in some event. A `FunctionExecution` is an event with events as parts, a goal and a physical agent as participants. Both are played by a `ManifestedBehavior` (`isPlayedBy`).
+
+**Behavior.** `Behavior` is the union of the five kinds of behavior of the standard: `ManifestedBehavior`, `EngineeringBehavior`, `EmergentBehavior`, `ArchitecturalBehavior` and `RuleBehavior`. They sit at different places in DUL: engineering and emergent behavior are information objects classified by a role, architectural behavior is a quality, rule behavior a physical object, and manifested behavior an interaction.
+
+**Interaction.** An `Interaction` is a quality of an event. Its subclasses are `PhysicalInteraction` and `InformationInteraction`, which are disjoint, and `ManifestedBehavior`.
+
+**Environment.** An `ObjectCenteredEnvironment` is a physical object with physical objects as parts that participates in some event. `ObjectCenteredEnvironmentDescription` and `ObjectCenteredExternalEnvironmentDescription` are information objects that are classified by a role and participate in some event.
+
+Where the standard states an axiom that DUL cannot express, the ontology deviates and documents this in an `rdfs:comment` at the affected class (clauses 4.4.2 and 4.4.10).
 
 ![](./pictures/ieee1872-2.png)
-Figure 1: Autonomous Robots according to IEEE 1872.2      
+Figure 1: Autonomous Robots according to IEEE 1872.2 (editable source: [`pictures/ieee1872-2.drawio`](pictures/ieee1872-2.drawio), open with [draw.io](https://www.drawio.com))
 
 [1] IEEE 1872.2-2021. IEEE Standard for Autonomous Robotics (AuR) Ontology, 12.05.2022. <br>
 [2] IEEE 1872-2015. IEEE Standard Ontologies for Robotics and Automation, 10.04.2015.

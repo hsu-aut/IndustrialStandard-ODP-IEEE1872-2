@@ -1,0 +1,294 @@
+<mxfile host="tools/diagramme" type="device">
+  <diagram id="d" name="class IEEE 1872.2 (AuR)">
+    <mxGraphModel grid="1" page="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" pageScale="1" math="0" shadow="0" adaptiveColors="none">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <object label="class IEEE 1872.2 (AuR)" rolle="rahmen" id="rahmen">
+          <mxCell parent="1" style="shape=umlFrame;whiteSpace=wrap;html=1;width=195;height=26;fillColor=none;strokeColor=#7A7A7A;fontFamily=Helvetica;fontSize=11;fontStyle=1;align=left;verticalAlign=middle;spacingLeft=8;fontColor=#222222;" vertex="1">
+            <mxGeometry height="518" width="810" x="0" y="0" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="DUL: InformationObject" iri="dul:InformationObject" rolle="fremd" id="io">
+          <mxCell parent="1" style="swimlane;startSize=26;swimlaneLine=1;swimlaneFillColor=#EDEDED;collapsible=0;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeLast=0;marginBottom=0;rounded=1;arcSize=6;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#EDEDED;strokeColor=#8A8A8A;fontColor=#2B2B2B;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="46" width="175" as="geometry" x="44.5" y="56" />
+          </mxCell>
+        </object>
+        <object label="≡ SUMO: Proposition" rolle="axiom" axiom="equiv|sumo:Proposition" id="io_a0">
+          <mxCell parent="io" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#2B2B2B;" vertex="1">
+            <mxGeometry height="17" width="175" y="26" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="EngineeringBehavior" iri="aur:EngineeringBehavior" rolle="eigen" id="eng">
+          <mxCell parent="1" style="swimlane;startSize=26;swimlaneLine=1;swimlaneFillColor=#DCE6F1;collapsible=0;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeLast=0;marginBottom=0;rounded=1;arcSize=6;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#DCE6F1;strokeColor=#2F5C8A;fontColor=#14283C;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="46" width="150" x="70.5" y="128" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="⊑ ∃isClassifiedBy.Role" rolle="axiom" axiom="some|dul:isClassifiedBy|dul:Role" id="eng_a0">
+          <mxCell parent="eng" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="150" y="26" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="EmergentBehavior" iri="aur:EmergentBehavior" rolle="eigen" id="emg">
+          <mxCell parent="1" style="swimlane;startSize=26;swimlaneLine=1;swimlaneFillColor=#DCE6F1;collapsible=0;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeLast=0;marginBottom=0;rounded=1;arcSize=6;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#DCE6F1;strokeColor=#2F5C8A;fontColor=#14283C;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="46" width="150" x="70.5" y="184" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="⊑ ∃isClassifiedBy.Role" rolle="axiom" axiom="some|dul:isClassifiedBy|dul:Role" id="emg_a0">
+          <mxCell parent="emg" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="150" y="26" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="ObjectCentered&lt;br&gt;EnvironmentDescription" iri="aur:ObjectCenteredEnvironmentDescription" rolle="eigen" id="oced">
+          <mxCell parent="1" style="swimlane;startSize=41;swimlaneLine=1;swimlaneFillColor=#DCE6F1;collapsible=0;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeLast=0;marginBottom=0;rounded=1;arcSize=6;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#DCE6F1;strokeColor=#2F5C8A;fontColor=#14283C;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="78" width="175" x="70.5" y="240" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="⊑ ∃isClassifiedBy.Role" rolle="axiom" axiom="some|dul:isClassifiedBy|dul:Role" id="oced_a0">
+          <mxCell parent="oced" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="175" y="41" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="⊑ ∃isParticipantIn.Event" rolle="axiom" axiom="some|dul:isParticipantIn|dul:Event" id="oced_a1">
+          <mxCell parent="oced" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="175" y="58" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="ObjectCenteredExternal&lt;br&gt;EnvironmentDescription" iri="aur:ObjectCenteredExternalEnvironmentDescription" rolle="eigen" id="oceed">
+          <mxCell parent="1" style="swimlane;startSize=41;swimlaneLine=1;swimlaneFillColor=#DCE6F1;collapsible=0;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeLast=0;marginBottom=0;rounded=1;arcSize=6;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#DCE6F1;strokeColor=#2F5C8A;fontColor=#14283C;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="78" width="175" x="70.5" y="328" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="⊑ ∃isClassifiedBy.Role" rolle="axiom" axiom="some|dul:isClassifiedBy|dul:Role" id="oceed_a0">
+          <mxCell parent="oceed" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="175" y="41" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="⊑ ∃isParticipantIn.Event" rolle="axiom" axiom="some|dul:isParticipantIn|dul:Event" id="oceed_a1">
+          <mxCell parent="oceed" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="175" y="58" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="DUL: Quality" iri="dul:Quality" rolle="fremd" id="qual">
+          <mxCell parent="1" style="swimlane;startSize=26;swimlaneLine=1;swimlaneFillColor=#EDEDED;collapsible=0;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeLast=0;marginBottom=0;rounded=1;arcSize=6;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#EDEDED;strokeColor=#8A8A8A;fontColor=#2B2B2B;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="46" width="125" x="264.5" as="geometry" y="56" />
+          </mxCell>
+        </object>
+        <object label="≡ SUMO: Attribute" rolle="axiom" axiom="equiv|sumo:Attribute" id="qual_a0">
+          <mxCell parent="qual" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#2B2B2B;" vertex="1">
+            <mxGeometry height="17" width="125" y="26" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="ArchitecturalBehavior" iri="aur:ArchitecturalBehavior" rolle="eigen" id="arch">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#DCE6F1;strokeColor=#2F5C8A;fontColor=#14283C;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="30" width="165" x="290.5" y="132" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Interaction" iri="aur:Interaction" rolle="eigen" id="inter">
+          <mxCell parent="1" style="swimlane;startSize=26;swimlaneLine=1;swimlaneFillColor=#DCE6F1;collapsible=0;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeLast=0;marginBottom=0;rounded=1;arcSize=6;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#DCE6F1;strokeColor=#2F5C8A;fontColor=#14283C;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="46" width="140" x="290.5" y="174" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="⊑ ∃isQualityOf.Event" rolle="axiom" axiom="some|dul:isQualityOf|dul:Event" id="inter_a0">
+          <mxCell parent="inter" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="140" y="26" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="ManifestedBehavior" iri="aur:ManifestedBehavior" rolle="eigen" id="man">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#DCE6F1;strokeColor=#2F5C8A;fontColor=#14283C;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="30" width="145" x="316.5" y="352" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="PhysicalInteraction" iri="aur:PhysicalInteraction" rolle="eigen" id="phys">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#DCE6F1;strokeColor=#2F5C8A;fontColor=#14283C;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="30" width="155" x="316.5" y="256" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="InformationInteraction" iri="aur:InformationInteraction" rolle="eigen" id="info">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#DCE6F1;strokeColor=#2F5C8A;fontColor=#14283C;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="30" width="175" x="316.5" y="310" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="DUL: PhysicalObject" iri="dul:PhysicalObject" rolle="fremd" id="po">
+          <mxCell parent="1" style="swimlane;startSize=26;swimlaneLine=1;swimlaneFillColor=#EDEDED;collapsible=0;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeLast=0;marginBottom=0;rounded=1;arcSize=6;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#EDEDED;strokeColor=#8A8A8A;fontColor=#2B2B2B;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="46" width="170" x="569.5" as="geometry" y="56" />
+          </mxCell>
+        </object>
+        <object label="≡ SUMO: CorpuscularObject" rolle="axiom" axiom="equiv|sumo:CorpuscularObject" id="po_a0">
+          <mxCell parent="po" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#2B2B2B;" vertex="1">
+            <mxGeometry height="17" width="170" y="26" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="RuleBehavior" iri="aur:RuleBehavior" rolle="eigen" id="rule">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#DCE6F1;strokeColor=#2F5C8A;fontColor=#14283C;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="30" width="110" x="595.5" y="132" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="ObjectCentered&lt;br&gt;Environment" iri="aur:ObjectCenteredEnvironment" rolle="eigen" id="oce">
+          <mxCell parent="1" style="swimlane;startSize=41;swimlaneLine=1;swimlaneFillColor=#DCE6F1;collapsible=0;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeLast=0;marginBottom=0;rounded=1;arcSize=6;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#DCE6F1;strokeColor=#2F5C8A;fontColor=#14283C;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="78" width="170" x="595.5" y="174" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="⊑ ∃hasPart.PhysicalObject" rolle="axiom" axiom="some|dul:hasPart|dul:PhysicalObject" id="oce_a0">
+          <mxCell parent="oce" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="170" y="41" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="⊑ ∃isParticipantIn.Event" rolle="axiom" axiom="some|dul:isParticipantIn|dul:Event" id="oce_a1">
+          <mxCell parent="oce" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="170" y="58" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="DUL: Event" iri="dul:Event" rolle="fremd" id="ev">
+          <mxCell parent="1" style="swimlane;startSize=26;swimlaneLine=1;swimlaneFillColor=#EDEDED;collapsible=0;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeLast=0;marginBottom=0;rounded=1;arcSize=6;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#EDEDED;strokeColor=#8A8A8A;fontColor=#2B2B2B;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="46" width="120" x="44.5" y="426" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="≡ SUMO: Process" rolle="axiom" axiom="equiv|sumo:Process" id="ev_a0">
+          <mxCell parent="ev" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#2B2B2B;" vertex="1">
+            <mxGeometry height="17" width="120" y="26" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="FunctionExecution" iri="aur:FunctionExecution" rolle="eigen" id="fe">
+          <mxCell parent="1" style="swimlane;startSize=26;swimlaneLine=1;swimlaneFillColor=#DCE6F1;collapsible=0;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeLast=0;marginBottom=0;rounded=1;arcSize=6;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#DCE6F1;strokeColor=#2F5C8A;fontColor=#14283C;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="80" width="195" x="194.5" y="418" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="⊑ ∃hasPart.Event" rolle="axiom" axiom="some|dul:hasPart|dul:Event" id="fe_a0">
+          <mxCell parent="fe" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="195" y="26" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="⊑ ∃hasParticipant.Goal" rolle="axiom" axiom="some|dul:hasParticipant|dul:Goal" id="fe_a1">
+          <mxCell parent="fe" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="195" y="43" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="⊑ ∃hasParticipant.PhysicalAgent" rolle="axiom" axiom="some|dul:hasParticipant|dul:PhysicalAgent" id="fe_a2">
+          <mxCell parent="fe" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="195" y="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="DUL: Role" iri="dul:Role" rolle="fremd" id="role">
+          <mxCell parent="1" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#EDEDED;strokeColor=#8A8A8A;fontColor=#2B2B2B;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="30" width="90" x="569.5" y="282" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Function" iri="aur:Function" rolle="eigen" id="fn">
+          <mxCell parent="1" style="swimlane;startSize=26;swimlaneLine=1;swimlaneFillColor=#DCE6F1;collapsible=0;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeLast=0;marginBottom=0;rounded=1;arcSize=6;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#DCE6F1;strokeColor=#2F5C8A;fontColor=#14283C;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="46" width="165" x="569.5" y="342" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="⊑ ∃isParticipantIn.Event" rolle="axiom" axiom="some|dul:isParticipantIn|dul:Event" id="fn_a0">
+          <mxCell parent="fn" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="165" y="26" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="Behavior" iri="aur:Behavior" rolle="eigen" id="beh">
+          <mxCell parent="1" style="swimlane;startSize=26;swimlaneLine=1;swimlaneFillColor=#DCE6F1;collapsible=0;childLayout=stackLayout;horizontalStack=0;resizeParent=1;resizeLast=0;marginBottom=0;rounded=1;arcSize=6;whiteSpace=wrap;html=1;fontStyle=1;fontFamily=Helvetica;fontSize=11;fillColor=#DCE6F1;strokeColor=#2F5C8A;fontColor=#14283C;shadow=0;glass=0;align=center;verticalAlign=middle;" vertex="1">
+            <mxGeometry height="80" width="275" x="419.5" y="418" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="≡ ManifestedBehavior ⊔ EngineeringBehavior ⊔" rolle="axiom" axiom="union|aur:ManifestedBehavior,aur:EngineeringBehavior,aur:EmergentBehavior,aur:ArchitecturalBehavior,aur:RuleBehavior" id="beh_a0">
+          <mxCell parent="beh" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="275" y="26" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="   EmergentBehavior ⊔ ArchitecturalBehavior ⊔" rolle="axiom" axiom="" id="beh_a1">
+          <mxCell parent="beh" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="275" y="43" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="   RuleBehavior" rolle="axiom" axiom="" id="beh_a2">
+          <mxCell parent="beh" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=7;spacingRight=4;overflow=hidden;rotatable=0;fontFamily=Helvetica;fontSize=10;fontColor=#14283C;" vertex="1">
+            <mxGeometry height="17" width="275" y="60" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" art="gen" id="k0">
+          <mxCell edge="1" parent="1" source="eng" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=none;jumpSize=8;endArrow=block;endFill=0;endSize=11;exitX=0;exitY=0.2826;exitDx=0;exitDy=0;entryX=0.08;entryY=1;entryDx=0;entryDy=0;" target="io">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" art="gen" id="k1">
+          <mxCell edge="1" parent="1" source="emg" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=none;jumpSize=8;endArrow=block;endFill=0;endSize=11;exitX=0;exitY=0.2826;exitDx=0;exitDy=0;entryX=0.08;entryY=1;entryDx=0;entryDy=0;" target="io">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" art="gen" id="k2">
+          <mxCell edge="1" parent="1" source="oced" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=none;jumpSize=8;endArrow=block;endFill=0;endSize=11;exitX=0;exitY=0.263;exitDx=0;exitDy=0;entryX=0.08;entryY=1;entryDx=0;entryDy=0;" target="io">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" art="gen" id="k3">
+          <mxCell edge="1" parent="1" source="oceed" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=none;jumpSize=8;endArrow=block;endFill=0;endSize=11;exitX=0;exitY=0.263;exitDx=0;exitDy=0;entryX=0.08;entryY=1;entryDx=0;entryDy=0;" target="io">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" art="gen" id="k4">
+          <mxCell edge="1" parent="1" source="arch" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=none;jumpSize=8;endArrow=block;endFill=0;endSize=11;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.112;entryY=1;entryDx=0;entryDy=0;" target="qual">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" art="gen" id="k5">
+          <mxCell edge="1" parent="1" source="inter" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=none;jumpSize=8;endArrow=block;endFill=0;endSize=11;exitX=0;exitY=0.283;exitDx=0;exitDy=0;entryX=0.112;entryY=1;entryDx=0;entryDy=0;" target="qual">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" art="gen" id="k6">
+          <mxCell edge="1" parent="1" source="man" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=none;jumpSize=8;endArrow=block;endFill=0;endSize=11;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.1;entryY=1;entryDx=0;entryDy=0;" target="inter">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" art="gen" id="k7">
+          <mxCell edge="1" parent="1" source="phys" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=none;jumpSize=8;endArrow=block;endFill=0;endSize=11;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.1;entryY=1;entryDx=0;entryDy=0;" target="inter">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" art="gen" id="k8">
+          <mxCell edge="1" parent="1" source="info" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=none;jumpSize=8;endArrow=block;endFill=0;endSize=11;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.1;entryY=1;entryDx=0;entryDy=0;" target="inter">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" art="gen" id="k9">
+          <mxCell edge="1" parent="1" source="rule" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=none;jumpSize=8;endArrow=block;endFill=0;endSize=11;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=0.0824;entryY=1;entryDx=0;entryDy=0;" target="po">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" art="gen" id="k10">
+          <mxCell edge="1" parent="1" source="oce" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=none;jumpSize=8;endArrow=block;endFill=0;endSize=11;exitX=0;exitY=0.263;exitDx=0;exitDy=0;entryX=0.0824;entryY=1;entryDx=0;entryDy=0;" target="po">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" art="gen" id="k11">
+          <mxCell edge="1" parent="1" source="fe" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=none;jumpSize=8;endArrow=block;endFill=0;endSize=11;exitX=0;exitY=0.225;exitDx=0;exitDy=0;entryX=1;entryY=0.2174;entryDx=0;entryDy=0;" target="ev">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="" art="gen" id="k12">
+          <mxCell edge="1" parent="1" source="fn" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=none;jumpSize=8;endArrow=block;endFill=0;endSize=11;exitX=0.2727;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="role">
+            <mxGeometry relative="1" as="geometry" />
+          </mxCell>
+        </object>
+        <object label="{disjoint}" art="disj" id="k13">
+          <mxCell edge="1" parent="1" source="phys" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=line;jumpSize=8;endArrow=none;dashed=1;dashPattern=4 3;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.6629;entryY=0;entryDx=0;entryDy=0;" target="info">
+            <mxGeometry relative="1" as="geometry">
+              <mxPoint x="32" as="offset" />
+            </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="isPlayedBy" art="assoc" iri="aur:isPlayedBy" id="k14">
+          <mxCell edge="1" parent="1" source="fn" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=line;jumpSize=8;endArrow=open;endFill=0;endSize=8;exitX=0;exitY=0.413;exitDx=0;exitDy=0;entryX=1;entryY=0.3;entryDx=0;entryDy=0;" target="man">
+            <mxGeometry relative="1" x="0" as="geometry">
+              </mxGeometry>
+          </mxCell>
+        </object>
+        <object label="isPlayedBy" art="assoc" iri="aur:isPlayedBy" id="k15">
+          <mxCell edge="1" parent="1" source="fe" style="html=1;rounded=0;edgeStyle=orthogonalEdgeStyle;jettySize=12;fontFamily=Helvetica;fontSize=10;fontColor=#222222;labelBackgroundColor=#FFFFFF;spacingBottom=2;strokeColor=#333333;jumpStyle=line;jumpSize=8;endArrow=open;endFill=0;endSize=8;exitX=0.9231;exitY=0;exitDx=0;exitDy=0;entryX=0.4;entryY=1;entryDx=0;entryDy=0;" target="man">
+            <mxGeometry relative="1" x="0" as="geometry">
+              <mxPoint x="34" y="0" as="offset" /></mxGeometry>
+          </mxCell>
+        </object>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
